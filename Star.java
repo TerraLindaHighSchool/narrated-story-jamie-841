@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Star extends Actor
 {
-    private int x, y, speed, size;
-    private Color color;
+   private int x, y, speed, size;
+   private Color color;
     
-    public Star(int speed, Color color, int worldWidth, int worldHeight)
-    {
+   public Star(int speed, Color color, int worldWidth, int worldHeight)
+   {
       size = 1 + Greenfoot.getRandomNumber(4);
       GreenfootImage image = new GreenfootImage (size, size);
       image.setColor (color);
@@ -24,7 +24,17 @@ public class Star extends Actor
       y = Greenfoot.getRandomNumber(worldHeight);
     
    }
-
+   
+   public int getX()
+   {
+       return x;
+   }
+   
+   public int getY()
+   {
+       return y;
+   }
+   
    public void move()
    {
        x = speed + x;
