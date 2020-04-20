@@ -15,12 +15,21 @@ public class Button extends Actor
     private static final Color transparent = new Color(0,0,0,0);
     private GreenfootImage background;
     private String prefix;
+    private GreenfootSound narration;
     
     public Button()
     {
         this("Click to Begin Story");
     }
-
+    
+    public void act()
+    {
+        if(Greenfoot.mouseClicked(this) && !narration.isPlaying())
+        {
+            narration.play();
+        }
+    }
+    
     /**
      * Create a button for later use to initialize the narration.
      */
@@ -29,6 +38,7 @@ public class Button extends Actor
         background = getImage();  // get image from class
         this.prefix = prefix;
         updateImage();
+        narration = new GreenfootSound("Computer Voice.mp3");
     }
 
     /**
